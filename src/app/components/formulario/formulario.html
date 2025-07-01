@@ -1,0 +1,20 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div>
+    <label>Nombre:</label>
+    <input type="text" formControlName="nombre">
+    <small *ngIf="form.get('nombre')?.errors?.['required']">Campo obligatorio</small>
+  </div>
+
+  <div>
+    <label>Email:</label>
+    <input type="email" formControlName="email">
+    <small *ngIf="form.get('email')?.errors?.['email']">Email inválido</small>
+  </div>
+
+  <div>
+    <label>Mensaje:</label>
+    <textarea formControlName="mensaje"></textarea>
+  </div>
+
+  <button type="submit" [disabled]="!form.valid">Enviar</button>
+</form>

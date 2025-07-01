@@ -3,10 +3,16 @@ import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.css'
+  standalone: true,
+  imports: [RouterOutlet], // Esta importación SÍ se usa (para <router-outlet>)
+  template: `
+    <main>
+      <!-- RouterOutlet es usado aquí -->
+      <router-outlet></router-outlet>
+    </main>
+  `,
+  styles: []
 })
 export class App {
-  protected title = 'ejemplo01';
+  title = 'ejemplo01'; // Puedes eliminar esta línea si no la usas
 }
